@@ -1,0 +1,82 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div>
+            <form>
+                <label>Username</label>
+                <input type="text" placeholder="username..." id="username"/>
+                <label>Email</label>
+                <input type="email" placeholder="email..." id="email"/>
+                <label>Company</label>
+                <input type="text" placeholder="company..." id="company"/>
+                <select id="job">
+                    <option>designer</option>
+                    <option>developer</option>
+                    <option>tester</option>
+                    <option>marketting</option>
+                </select>
+                <button type="submit" id="btn">Submit</button>
+            </form>
+        </div>
+        <table id="tbl"></table>
+        <script>
+            var employeesDetails = [];
+            function Data(employeesDetails){
+                var row = `<tr>
+                    <th>S.No</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>Job</th>
+                    <th>Actions</th>
+                    </tr>`;
+                    employeesDetails.map((employeeDetail, index)=>{
+                        row+=`
+                        <tr>
+                            <td>${index+1}</td>
+                            <td>${employeeDetail[0]}</td>
+                            <td>${employeeDetail[1]}</td>
+                            <td>${employeeDetail[2]}</td>
+                            <td>${employeeDetail[3]}</td>
+                            <td><button onclick=edit(${index})>Edit</button>&nbsp;<button onclick=del(${index})>Delete</button></td>
+                        </tr>`;
+                    })
+                    document.getElementById('tbl').innerHTML = row;
+            }
+            var displayData = document.getElementById('btn')
+            displayData.addEventListener("click",function getData(){
+                event.preventDefault()
+                var username = document.getElementById('username').value;
+                var email = document.getElementById('email').value;
+                var company = document.getElementById('company').value;
+                var job = document.getElementById('job').value;
+                var employeeDetail = [username, email, company, job]
+                employeesDetails.push(employeeDetail)
+                Data(employeesDetails)
+                resetForm();
+            })
+            function del(index){
+                employeesDetails.splice(index, 1)
+                Data(employeesDetails)
+            }
+            function edit(index){
+                var employeeDetail = employeesDetails[index];
+                employeesDetails.splice(index, 1)
+                document.getElementById('username').value = employeeDetail[0];
+                document.getElementById('email').value = employeeDetail[1];
+                document.getElementById('company').value = employeeDetail[2];
+                document.getElementById('job').value = employeeDetail[3];
+                document.getElementById('btn').innerHTML = 'Update';
+            }
+            function resetForm(){
+                document.getElementById('username').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('company').value = '';
+                document.getElementById('job').value = '';
+                document.getElementById('btn').innerHTML = 'Submit';
+            }
+        </script>
+    </body>
+</html>
