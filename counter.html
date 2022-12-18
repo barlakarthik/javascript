@@ -1,0 +1,49 @@
+<html>
+<head>
+    
+</head>
+<body>
+        <h1>Stop Watch</h1>
+        <span id="sec">0</span>
+        <button id="btn-start">Start</button>
+        <button id="btn-stop">Stop</button>
+        <button id="btn-reset">Reset</button>
+</body>
+<script>
+    function time(){
+    var sec = 0;
+    var OutputSec = document.getElementById("sec");
+    var buttonStart = document.getElementById("btn-start");
+    var buttonStop = document.getElementById("btn-stop");
+    var buttonReset = document.getElementById("btn-reset");
+    var Interval;
+
+    buttonStart.addEventListener('click', () => {
+        clearInterval(Interval);
+        Interval = setInterval(startTimer, 1000); 
+    });
+
+    buttonStop.addEventListener('click', () => {
+        clearInterval(Interval);
+    });
+
+    buttonReset.addEventListener('click', () => {
+        clearInterval(Interval);
+        sec = "0";
+        OutputSec.innerHTML = sec;
+    });
+
+    function startTimer(){
+        sec++;
+        if(sec < 0){
+            OutputSec.innerHTML = "0";
+        }
+
+        if(sec > 0){
+            OutputSec.innerHTML = sec;
+        }
+    }
+}
+time()
+</script>
+</html>

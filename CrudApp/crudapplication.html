@@ -1,10 +1,80 @@
 <html>
     <head>
+        <style>
+            input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+              }
+            input[type=email]{
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }  
+              
+              #btn {
+                width: 100%;
+                background-color:transparent;
+                color: white;
+                padding: 15px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                border: 1px solid black;
+                color: black;
+              }
+              
+              #btn:hover {
+                background-color: rgb(99, 156, 255);
+              }
+              
+              form {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                margin: 10px 200px;
+                padding: 30px 50px;
+              }
+              h1{
+                text-align: center;
+              }
+              #tbl {
+                 font-family: Arial, Helvetica, sans-serif;
+                 border-collapse: collapse;
+                 width: 100%;
+             }
+             #tbl td, #tbl th {
+                border: 1px solid #ddd;
+                 padding: 8px;
+           }
+           #tbl tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+        #tbl tr:hover {
+            background-color: #ddd;
+        }
+        #tbl th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:  rgb(99, 156, 255);
+  color: white;
+     }
 
+        </style>
     </head>
     <body>
         <div>
             <form>
+                <h1>Form</h1>
                 <label>Username</label>
                 <input type="text" placeholder="username..." id="username"/>
                 <label>Email</label>
@@ -19,8 +89,8 @@
                 </select>
                 <button type="submit" id="btn">Submit</button>
             </form>
+            <table id="tbl"></table>
         </div>
-        <table id="tbl"></table>
         <script>
             var employeesDetails = [];
             function Data(employeesDetails){
@@ -62,20 +132,21 @@
                 Data(employeesDetails)
             }
             function edit(index){
-                var employeeDetail = employeesDetails[index];
+                 var employeedata = employeesDetails[index]
                 employeesDetails.splice(index, 1)
-                document.getElementById('username').value = employeeDetail[0];
-                document.getElementById('email').value = employeeDetail[1];
-                document.getElementById('company').value = employeeDetail[2];
-                document.getElementById('job').value = employeeDetail[3];
-                document.getElementById('btn').innerHTML = 'Update';
+                 document.getElementById('username').value = employeedata[0];
+                 document.getElementById('email').value = employeedata[1];
+                 document.getElementById('company').value = employeedata[2];
+                 document.getElementById('job').value = employeedata[3];
+                document.getElementById('btn').innerHTML = '    Update'
             }
+            
             function resetForm(){
                 document.getElementById('username').value = '';
                 document.getElementById('email').value = '';
                 document.getElementById('company').value = '';
                 document.getElementById('job').value = '';
-                document.getElementById('btn').innerHTML = 'Submit';
+                document.getElementById('btn').innerHTML = 'Submit'
             }
         </script>
     </body>

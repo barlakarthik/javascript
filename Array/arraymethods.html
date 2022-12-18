@@ -1,0 +1,42 @@
+<html>
+<head>
+    
+</head>
+<body>
+    <p id = 'text'></p>
+    <script>
+        const colors = ['red', 'blue', 'green', 'orange', 'white', 'black', 'yellow', 'violet', 'indigo', 'purple', 'pink', 'brown']
+        // for(i=0; i<=colors.length; i++){
+        //     console.log(colors[i])
+        // }
+
+        // var row;
+        // colors.map((i,index)=>{
+        //      row +=`<h1>${index}${i}</h1>`
+        // })
+        // document.getElementById('text').innerHTML = row;
+
+        // for(let color of colors){
+        //     console.log(color)
+        // }
+
+        // const color =  colors.includes('camaflauge')
+
+//         let text = "";
+//         colors.forEach(myFunction);
+// document.getElementById("text").innerHTML = text;
+// function myFunction(item, index) {
+//   text += index + ": " + item + "<br>"; 
+//}
+
+const othercolors =  ['skyblue', 'aqua marine', 'dodgerblue', 'navyblue']
+// colors.push(othercolors)
+
+// const pop = colors.pop()  //last one removed
+// const shift = colors.shift() //first one removed
+// const unshift = colors.unshift() // last one removed
+const all = colors.concat(othercolors)
+console.log(all.join('@'));
+    </script>
+</body>
+</html>

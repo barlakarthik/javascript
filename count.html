@@ -1,0 +1,23 @@
+<html>
+<head>
+    
+</head>
+<body>
+    <h1 id="count">0</h1>
+    <button id="inc" onclick="increment()">Increment</button>
+    <button id="reset" onclick="reset()">Reset</button>
+    <button id="dec" onclick="decrement()">Decrement</button>
+</body>
+<script>
+    var count = 0
+    function increment(){
+        document.getElementById('count').innerHTML = count+=1
+    }
+    function reset(){
+        document.getElementById('count').innerHTML = count=0
+    }
+    function decrement(){
+        document.getElementById('count').innerHTML = count>0?count-=1:count=0
+    }
+</script>
+</html>
